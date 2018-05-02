@@ -1,1 +1,39 @@
-ewoJIm5hbWUiOiAiQ29weVBpcGVsaW5lIiwKCSJwcm9wZXJ0aWVzIjogewoJCSJhY3Rpdml0aWVzIjogWwoJCQl7CgkJCQkibmFtZSI6ICJHaXRIdWJDb3B5RnJvbUJsb2JUb0Jsb2IiLAoJCQkJImRlc2NyaXB0aW9uIjogInRlc3R0ZXN0IiwKCQkJCSJ0eXBlIjogIkNvcHkiLAoJCQkJInBvbGljeSI6IHsKCQkJCQkidGltZW91dCI6ICI3LjAwOjAwOjAwIiwKCQkJCQkicmV0cnkiOiAwLAoJCQkJCSJyZXRyeUludGVydmFsSW5TZWNvbmRzIjogMzAKCQkJCX0sCgkJCQkidHlwZVByb3BlcnRpZXMiOiB7CgkJCQkJInNvdXJjZSI6IHsKCQkJCQkJInR5cGUiOiAiQmxvYlNvdXJjZSIsCgkJCQkJCSJyZWN1cnNpdmUiOiB0cnVlCgkJCQkJfSwKCQkJCQkic2luayI6IHsKCQkJCQkJInR5cGUiOiAiQmxvYlNpbmsiCgkJCQkJfSwKCQkJCQkiZW5hYmxlU3RhZ2luZyI6IGZhbHNlLAoJCQkJCSJjbG91ZERhdGFNb3ZlbWVudFVuaXRzIjogMAoJCQkJfSwKCQkJCSJpbnB1dHMiOiBbCgkJCQkJewoJCQkJCQkicmVmZXJlbmNlTmFtZSI6ICJJbnB1dERhdGFzZXQiLAoJCQkJCQkidHlwZSI6ICJEYXRhc2V0UmVmZXJlbmNlIgoJCQkJCX0KCQkJCV0sCgkJCQkib3V0cHV0cyI6IFsKCQkJCQl7CgkJCQkJCSJyZWZlcmVuY2VOYW1lIjogIk91dHB1dERhdGFzZXQiLAoJCQkJCQkidHlwZSI6ICJEYXRhc2V0UmVmZXJlbmNlIgoJCQkJCX0KCQkJCV0KCQkJfQoJCV0KCX0KfQ==
+{
+	"name": "CopyPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "GitHubCopyFromBlobToBlob",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"cloudDataMovementUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "InputDataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "OutputDataset",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		]
+	}
+}
