@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "GitHubCopyFromBlobToBlob",
+				"description": "testtestsetes",
 				"type": "Copy",
 				"policy": {
 					"timeout": "7.00:00:00",
