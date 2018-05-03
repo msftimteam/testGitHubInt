@@ -1,6 +1,7 @@
 {
 	"name": "CopyPipeline",
 	"properties": {
+		"description": "test multi updates",
 		"activities": [
 			{
 				"name": "GitHubCopyFromBlobToBlob",

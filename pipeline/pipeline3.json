@@ -1,10 +1,9 @@
 {
-	"name": "pipeline2",
+	"name": "pipeline3",
 	"properties": {
-		"description": "test multi updates",
 		"activities": [
 			{
-				"name": "copyData",
+				"name": "Copy",
 				"description": "testtestsetes",
 				"type": "Copy",
 				"policy": {
