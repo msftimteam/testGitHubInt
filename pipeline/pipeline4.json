@@ -1,6 +1,7 @@
 {
 	"name": "pipeline4",
 	"properties": {
+		"description": "test test",
 		"activities": [
 			{
 				"name": "Copy",
