@@ -1,10 +1,9 @@
 {
-	"name": "pipeline4",
+	"name": "pipeline5",
 	"properties": {
-		"description": "test",
 		"activities": [
 			{
-				"name": "Copy",
+				"name": "Copy1",
 				"description": "testtestsetes",
 				"type": "Copy",
 				"policy": {
