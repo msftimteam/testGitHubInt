@@ -1,7 +1,7 @@
 {
 	"name": "CopyPipeline",
 	"properties": {
-		"description": "test multi updates. test test",
+		"description": "test multi updates. test test again",
 		"activities": [
 			{
 				"name": "GitHubCopyFromBlobToBlob",
@@ -23,6 +23,16 @@
 					"enableStaging": false,
 					"cloudDataMovementUnits": 0
 				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "adftutorial/input/test_input.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "adftutorial/output/@{CONCAT(pipeline().RunId, '.txt')}"
+					}
+				],
 				"inputs": [
 					{
 						"referenceName": "InputDataset",
