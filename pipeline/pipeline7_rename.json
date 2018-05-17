@@ -1,5 +1,5 @@
 {
-	"name": "pipeline7",
+	"name": "pipeline7_rename",
 	"properties": {
 		"description": "test multi updates. test test again",
 		"activities": [
