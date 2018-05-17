@@ -1,7 +1,7 @@
 {
 	"name": "pipeline2",
 	"properties": {
-		"description": "test multi updates",
+		"description": "test multi updates. Updates......",
 		"activities": [
 			{
 				"name": "copyData",
@@ -23,6 +23,16 @@
 					"enableStaging": false,
 					"cloudDataMovementUnits": 0
 				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "adftutorial/input/test_input.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "adftutorial/output/@{CONCAT(pipeline().RunId, '.txt')}"
+					}
+				],
 				"inputs": [
 					{
 						"referenceName": "InputDataset",
