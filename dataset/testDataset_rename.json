@@ -1,5 +1,5 @@
 {
-	"name": "testDataset_rename_2",
+	"name": "testDataset_rename",
 	"properties": {
 		"description": "Same to InputDataset. test again",
 		"linkedServiceName": {
