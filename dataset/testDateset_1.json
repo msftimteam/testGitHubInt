@@ -1,7 +1,7 @@
 {
-	"name": "InputDataset",
+	"name": "testDateset_1",
 	"properties": {
-		"description": "testsetstest",
+		"description": "Same to InputDataset. testsetstes",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
@@ -11,9 +11,9 @@
 			"format": {
 				"type": "TextFormat",
 				"columnDelimiter": ",",
-				"rowDelimiter": "",
 				"nullValue": "\\N",
-				"treatEmptyAsNull": false,
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
 			"fileName": "test_input.txt",
