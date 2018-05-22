@@ -1,7 +1,6 @@
 {
 	"name": "pipeline6",
 	"properties": {
-		"description": "tewterstwertetssetsesetsts",
 		"activities": [
 			{
 				"name": "Copy1",
