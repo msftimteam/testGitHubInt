@@ -1,5 +1,5 @@
 {
-	"name": "testDateset_2",
+	"name": "testDateset",
 	"properties": {
 		"description": "Same to InputDataset.",
 		"linkedServiceName": {
