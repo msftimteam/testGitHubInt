@@ -1,6 +1,7 @@
 {
 	"name": "OutputDataset",
 	"properties": {
+		"description": "test sub folder",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
