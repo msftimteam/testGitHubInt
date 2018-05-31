@@ -1,5 +1,5 @@
 {
-	"name": "AzureBlob1",
+	"name": "AzureBlob1_rename",
 	"properties": {
 		"description": "test add in sub folder",
 		"linkedServiceName": {
