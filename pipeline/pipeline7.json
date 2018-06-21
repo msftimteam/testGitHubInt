@@ -1,10 +1,9 @@
 {
-	"name": "CopyPipeline",
+	"name": "pipeline7",
 	"properties": {
-		"description": "test multi updates. test test again",
 		"activities": [
 			{
-				"name": "GitHubCopyFromBlobToBlob",
+				"name": "Copy1",
 				"description": "testtestsetes",
 				"type": "Copy",
 				"policy": {

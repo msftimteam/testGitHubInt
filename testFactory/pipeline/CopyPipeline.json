@@ -1,6 +1,7 @@
 {
 	"name": "CopyPipeline",
 	"properties": {
+		"description": "test sub folder",
 		"activities": [
 			{
 				"name": "CopyFromBlobToBlob",

@@ -1,7 +1,7 @@
 {
-	"name": "OutputDataset",
+	"name": "AzureBlob1_rename",
 	"properties": {
-		"description": "test sub folder",
+		"description": "test add in sub folder",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
@@ -11,7 +11,6 @@
 			"format": {
 				"type": "TextFormat",
 				"columnDelimiter": ",",
-				"rowDelimiter": "",
 				"nullValue": "\\N",
 				"treatEmptyAsNull": false,
 				"firstRowAsHeader": false

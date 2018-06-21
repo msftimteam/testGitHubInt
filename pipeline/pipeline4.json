@@ -1,10 +1,10 @@
 {
-	"name": "CopyPipeline",
+	"name": "pipeline4",
 	"properties": {
-		"description": "test multi updates. test test again",
+		"description": "test",
 		"activities": [
 			{
-				"name": "GitHubCopyFromBlobToBlob",
+				"name": "Copy",
 				"description": "testtestsetes",
 				"type": "Copy",
 				"policy": {
@@ -23,16 +23,6 @@
 					"enableStaging": false,
 					"cloudDataMovementUnits": 0
 				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "adftutorial/input/test_input.txt"
-					},
-					{
-						"name": "Destination",
-						"value": "adftutorial/output/@{CONCAT(pipeline().RunId, '.txt')}"
-					}
-				],
 				"inputs": [
 					{
 						"referenceName": "InputDataset",
