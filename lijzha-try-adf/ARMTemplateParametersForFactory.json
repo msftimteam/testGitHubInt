@@ -1,1 +1,36 @@
-{}
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "lijzha-try-adf"
+		},
+		"AzureStorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"InputDataset_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"InputDataset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		},
+		"OutputDataset_properties_typeProperties_fileName": {
+			"value": "@CONCAT(pipeline().RunId, '.txt')"
+		},
+		"OutputDataset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/output"
+		},
+		"testDataset_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"testDataset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		},
+		"testDateset_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"testDateset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		}
+	}
+}
