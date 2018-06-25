@@ -25,6 +25,12 @@
 		},
 		"testInputDataset1_properties_typeProperties_folderPath": {
 			"value": "adftutorial/input"
+		},
+		"testInputDataset2_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"testInputDataset2_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
 		}
 	}
 }
