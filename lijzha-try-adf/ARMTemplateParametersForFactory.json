@@ -20,16 +20,16 @@
 		"OutputDataset_properties_typeProperties_folderPath": {
 			"value": "adftutorial/output"
 		},
-		"testDataset_properties_typeProperties_fileName": {
+		"testAddDataset_properties_typeProperties_fileName": {
 			"value": "test_input.txt"
 		},
-		"testDataset_properties_typeProperties_folderPath": {
+		"testAddDataset_properties_typeProperties_folderPath": {
 			"value": "adftutorial/input"
 		},
-		"testDateset_properties_typeProperties_fileName": {
+		"testDatesetTestPublish_properties_typeProperties_fileName": {
 			"value": "test_input.txt"
 		},
-		"testDateset_properties_typeProperties_folderPath": {
+		"testDatesetTestPublish_properties_typeProperties_folderPath": {
 			"value": "adftutorial/input"
 		}
 	}
