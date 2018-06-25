@@ -20,10 +20,10 @@
 		"OutputDataset_properties_typeProperties_folderPath": {
 			"value": "adftutorial/output"
 		},
-		"testInputDataset_properties_typeProperties_fileName": {
+		"testInputDataset1_properties_typeProperties_fileName": {
 			"value": "test_input.txt"
 		},
-		"testInputDataset_properties_typeProperties_folderPath": {
+		"testInputDataset1_properties_typeProperties_folderPath": {
 			"value": "adftutorial/input"
 		}
 	}
