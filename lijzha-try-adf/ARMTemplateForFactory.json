@@ -27,14 +27,6 @@
 			"type": "string",
 			"defaultValue": "adftutorial/output"
 		},
-		"testAddDataset_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "test_input.txt"
-		},
-		"testAddDataset_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "adftutorial/input"
-		},
 		"testDatesetTestPublish_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "test_input.txt"
@@ -329,6 +321,66 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/pipeline8')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2017-09-01-preview",
+			"properties": {
+				"description": "test multi updates. test test again",
+				"activities": [
+					{
+						"name": "GitHubCopyFromBlobToBlob",
+						"description": "testtestsetes",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "adftutorial/input/test_input.txt"
+							},
+							{
+								"name": "Destination",
+								"value": "adftutorial/output/@{CONCAT(pipeline().RunId, '.txt')}"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "BlobSource",
+								"recursive": true
+							},
+							"sink": {
+								"type": "BlobSink"
+							},
+							"enableStaging": false,
+							"cloudDataMovementUnits": 0
+						},
+						"inputs": [
+							{
+								"referenceName": "InputDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "OutputDataset",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/InputDataset')]",
+				"[concat(variables('factoryId'), '/datasets/OutputDataset')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/InputDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2017-09-01-preview",
@@ -381,33 +433,6 @@
 						"type": "Expression"
 					},
 					"folderPath": "[parameters('OutputDataset_properties_typeProperties_folderPath')]"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/testAddDataset')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2017-09-01-preview",
-			"properties": {
-				"description": "testsetstest. Test publish",
-				"linkedServiceName": {
-					"referenceName": "AzureStorageLinkedService",
-					"type": "LinkedServiceReference"
-				},
-				"type": "AzureBlob",
-				"typeProperties": {
-					"format": {
-						"type": "TextFormat",
-						"columnDelimiter": ",",
-						"nullValue": "\\N",
-						"treatEmptyAsNull": false,
-						"firstRowAsHeader": false
-					},
-					"fileName": "[parameters('testAddDataset_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testAddDataset_properties_typeProperties_folderPath')]"
 				}
 			},
 			"dependsOn": [
