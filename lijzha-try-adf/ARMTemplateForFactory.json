@@ -27,11 +27,11 @@
 			"type": "string",
 			"defaultValue": "adftutorial/output"
 		},
-		"testDatesetTestPublish_properties_typeProperties_fileName": {
+		"testInputDataset_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "test_input.txt"
 		},
-		"testDatesetTestPublish_properties_typeProperties_folderPath": {
+		"testInputDataset_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "adftutorial/input"
 		}
@@ -440,11 +440,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/testDatesetTestPublish')]",
+			"name": "[concat(parameters('factoryName'), '/testInputDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2017-09-01-preview",
 			"properties": {
-				"description": "Same to InputDataset. testestseteststs",
+				"description": "testsetstest. Test publish",
 				"linkedServiceName": {
 					"referenceName": "AzureStorageLinkedService",
 					"type": "LinkedServiceReference"
@@ -455,12 +455,11 @@
 						"type": "TextFormat",
 						"columnDelimiter": ",",
 						"nullValue": "\\N",
-						"treatEmptyAsNull": true,
-						"skipLineCount": 0,
+						"treatEmptyAsNull": false,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('testDatesetTestPublish_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testDatesetTestPublish_properties_typeProperties_folderPath')]"
+					"fileName": "[parameters('testInputDataset_properties_typeProperties_fileName')]",
+					"folderPath": "[parameters('testInputDataset_properties_typeProperties_folderPath')]"
 				}
 			},
 			"dependsOn": [
