@@ -34,6 +34,14 @@
 		"testInputDataset1_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "adftutorial/input"
+		},
+		"testInputDataset2_properties_typeProperties_fileName": {
+			"type": "string",
+			"defaultValue": "test_input.txt"
+		},
+		"testInputDataset2_properties_typeProperties_folderPath": {
+			"type": "string",
+			"defaultValue": "adftutorial/input"
 		}
 	},
 	"variables": {
@@ -400,6 +408,33 @@
 					},
 					"fileName": "[parameters('testInputDataset1_properties_typeProperties_fileName')]",
 					"folderPath": "[parameters('testInputDataset1_properties_typeProperties_folderPath')]"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureStorageLinkedService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/testInputDataset2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2017-09-01-preview",
+			"properties": {
+				"description": "testsetstest. Test publish without lastCommitId",
+				"linkedServiceName": {
+					"referenceName": "AzureStorageLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"type": "AzureBlob",
+				"typeProperties": {
+					"format": {
+						"type": "TextFormat",
+						"columnDelimiter": ",",
+						"nullValue": "\\N",
+						"treatEmptyAsNull": false,
+						"firstRowAsHeader": false
+					},
+					"fileName": "[parameters('testInputDataset2_properties_typeProperties_fileName')]",
+					"folderPath": "[parameters('testInputDataset2_properties_typeProperties_folderPath')]"
 				}
 			},
 			"dependsOn": [
