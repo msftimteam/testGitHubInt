@@ -27,19 +27,19 @@
 			"type": "string",
 			"defaultValue": "adftutorial/output"
 		},
-		"testDataset_properties_typeProperties_fileName": {
+		"testAddDataset_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "test_input.txt"
 		},
-		"testDataset_properties_typeProperties_folderPath": {
+		"testAddDataset_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "adftutorial/input"
 		},
-		"testDateset_properties_typeProperties_fileName": {
+		"testDatesetTestPublish_properties_typeProperties_fileName": {
 			"type": "string",
 			"defaultValue": "test_input.txt"
 		},
-		"testDateset_properties_typeProperties_folderPath": {
+		"testDatesetTestPublish_properties_typeProperties_folderPath": {
 			"type": "string",
 			"defaultValue": "adftutorial/input"
 		}
@@ -388,11 +388,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/testDataset')]",
+			"name": "[concat(parameters('factoryName'), '/testAddDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2017-09-01-preview",
 			"properties": {
-				"description": "Same to InputDataset.",
+				"description": "testsetstest. Test publish",
 				"linkedServiceName": {
 					"referenceName": "AzureStorageLinkedService",
 					"type": "LinkedServiceReference"
@@ -402,14 +402,12 @@
 					"format": {
 						"type": "TextFormat",
 						"columnDelimiter": ",",
-						"rowDelimiter": "",
 						"nullValue": "\\N",
-						"treatEmptyAsNull": true,
-						"skipLineCount": 0,
+						"treatEmptyAsNull": false,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('testDataset_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testDataset_properties_typeProperties_folderPath')]"
+					"fileName": "[parameters('testAddDataset_properties_typeProperties_fileName')]",
+					"folderPath": "[parameters('testAddDataset_properties_typeProperties_folderPath')]"
 				}
 			},
 			"dependsOn": [
@@ -417,11 +415,11 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/testDateset')]",
+			"name": "[concat(parameters('factoryName'), '/testDatesetTestPublish')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2017-09-01-preview",
 			"properties": {
-				"description": "Same to InputDataset.",
+				"description": "Same to InputDataset. testestseteststs",
 				"linkedServiceName": {
 					"referenceName": "AzureStorageLinkedService",
 					"type": "LinkedServiceReference"
@@ -436,8 +434,8 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": false
 					},
-					"fileName": "[parameters('testDateset_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testDateset_properties_typeProperties_folderPath')]"
+					"fileName": "[parameters('testDatesetTestPublish_properties_typeProperties_fileName')]",
+					"folderPath": "[parameters('testDatesetTestPublish_properties_typeProperties_folderPath')]"
 				}
 			},
 			"dependsOn": [
