@@ -1,7 +1,7 @@
 {
-	"name": "testInputDataset",
+	"name": "testInputDataset1",
 	"properties": {
-		"description": "testsetstest. Test publish",
+		"description": "testsetstest. Test publish testestsetestestests",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
