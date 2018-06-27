@@ -1,7 +1,7 @@
 {
 	"name": "InputDataset",
 	"properties": {
-		"description": "testsetstest. Test publish",
+		"description": "testsetetseste",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
@@ -9,12 +9,7 @@
 		"type": "AzureBlob",
 		"typeProperties": {
 			"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "",
-				"nullValue": "\\N",
-				"treatEmptyAsNull": false,
-				"firstRowAsHeader": false
+				"type": "JsonFormat"
 			},
 			"fileName": "test_input.txt",
 			"folderPath": "adftutorial/input"
