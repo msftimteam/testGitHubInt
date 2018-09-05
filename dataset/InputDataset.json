@@ -1,7 +1,6 @@
 {
 	"name": "InputDataset",
 	"properties": {
-		"description": "testsetstest. Test publish",
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
 			"type": "LinkedServiceReference"
@@ -13,11 +12,13 @@
 				"columnDelimiter": ",",
 				"rowDelimiter": "",
 				"nullValue": "\\N",
-				"treatEmptyAsNull": false,
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
 			"fileName": "test_input.txt",
 			"folderPath": "adftutorial/input"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

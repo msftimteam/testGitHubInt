@@ -1,5 +1,5 @@
 {
-	"name": "OutputDataset",
+	"name": "AzureBlob1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureStorageLinkedService",
@@ -10,7 +10,6 @@
 			"format": {
 				"type": "TextFormat",
 				"columnDelimiter": ",",
-				"rowDelimiter": "",
 				"nullValue": "\\N",
 				"treatEmptyAsNull": false,
 				"firstRowAsHeader": false
