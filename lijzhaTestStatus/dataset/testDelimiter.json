@@ -24,14 +24,14 @@
 		"typeProperties": {
 			"format": {
 				"type": "TextFormat",
-				"columnDelimiter": "¬",
+				"columnDelimiter": ",",
 				"rowDelimiter": "",
 				"nullValue": "\\N",
 				"treatEmptyAsNull": true,
 				"skipLineCount": 0,
 				"firstRowAsHeader": true
 			},
-			"fileName": "inputDataTest.txt",
+			"fileName": "inputData.txt",
 			"folderPath": "test"
 		}
 	},
