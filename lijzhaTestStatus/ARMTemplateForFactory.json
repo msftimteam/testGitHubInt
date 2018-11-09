@@ -13,7 +13,7 @@
 		},
 		"testDelimiter_properties_typeProperties_fileName": {
 			"type": "string",
-			"defaultValue": "inputDataTest.txt"
+			"defaultValue": "inputData.txt"
 		},
 		"testDelimiter_properties_typeProperties_folderPath": {
 			"type": "string",
@@ -142,7 +142,7 @@
 				"typeProperties": {
 					"format": {
 						"type": "TextFormat",
-						"columnDelimiter": "¬",
+						"columnDelimiter": ",",
 						"rowDelimiter": "",
 						"nullValue": "\\N",
 						"treatEmptyAsNull": true,
