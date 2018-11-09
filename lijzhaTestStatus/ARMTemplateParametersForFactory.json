@@ -9,7 +9,7 @@
 			"value": ""
 		},
 		"testDelimiter_properties_typeProperties_fileName": {
-			"value": "inputData.txt"
+			"value": "inputDataTest.txt"
 		},
 		"testDelimiter_properties_typeProperties_folderPath": {
 			"value": "test"
