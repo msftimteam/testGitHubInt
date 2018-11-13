@@ -58,7 +58,7 @@
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "test",
+				"description": "testtesttse",
 				"activities": [
 					{
 						"name": "Copy Data1",
