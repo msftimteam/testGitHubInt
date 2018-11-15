@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "lijzhaGHEFactory"
+		},
+		"AzureStorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"AzureBlob1_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"AzureBlob1_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		},
+		"AzureBlobTestRenamed2_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"AzureBlobTestRenamed2_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		},
+		"InputDataset_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"InputDataset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		},
+		"OutputDataset_properties_typeProperties_fileName": {
+			"value": "@CONCAT(pipeline().RunId, '.txt')"
+		},
+		"OutputDataset_properties_typeProperties_folderPath": {
+			"value": "adftutorial/output"
+		},
+		"testDatasetRenamed_properties_typeProperties_fileName": {
+			"value": "test_input.txt"
+		},
+		"testDatasetRenamed_properties_typeProperties_folderPath": {
+			"value": "adftutorial/input"
+		}
+	}
+}
