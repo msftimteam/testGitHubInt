@@ -22,8 +22,6 @@
 					{
 						"name": "Execute Pipeline1",
 						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipeline1",
@@ -42,7 +40,6 @@
 								]
 							}
 						],
-						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipeline5",
@@ -61,7 +58,6 @@
 								]
 							}
 						],
-						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipeline6",
@@ -86,7 +82,6 @@
 								]
 							}
 						],
-						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipeline18",
@@ -97,8 +92,6 @@
 					{
 						"name": "Execute Pipeline5",
 						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
 						"typeProperties": {
 							"pipeline": {
 								"referenceName": "pipeline16",
@@ -109,77 +102,8 @@
 				],
 				"folder": {
 					"name": "test"
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/executePipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "testesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetsetestesttestsetsetsetestsetse",
-				"activities": [
-					{
-						"name": "Execute Pipeline1",
-						"type": "ExecutePipeline",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "executePipeline1_3",
-								"type": "PipelineReference"
-							}
-						}
-					},
-					{
-						"name": "Execute Pipeline2",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Execute Pipeline1",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "executePipeline4_5",
-								"type": "PipelineReference"
-							}
-						}
-					},
-					{
-						"name": "Execute Pipeline3",
-						"type": "ExecutePipeline",
-						"dependsOn": [
-							{
-								"activity": "Execute Pipeline2",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"pipeline": {
-								"referenceName": "pipeline14",
-								"type": "PipelineReference"
-							}
-						}
-					}
-				],
-				"folder": {
-					"name": "test"
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/executePipeline4_5')]"
-			]
+				}
+			}
 		}
 	]
 }
