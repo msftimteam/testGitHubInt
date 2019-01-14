@@ -1,0 +1,19 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"description": "testestsettstetestesttsets",
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "test8"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
