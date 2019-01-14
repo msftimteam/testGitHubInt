@@ -12,7 +12,7 @@
 			}
 		],
 		"folder": {
-			"name": "test2"
+			"name": "testDelete"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
