@@ -8,7 +8,7 @@
 				"type": "ExecutePipeline",
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "pipeline4",
+						"referenceName": "pipeline1",
 						"type": "PipelineReference"
 					}
 				}
