@@ -1,0 +1,62 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"description": "testset",
+		"activities": [
+			{
+				"name": "Wait1",
+				"description": "",
+				"type": "Wait",
+				"userProperties": [
+					{
+						"name": "testProperty",
+						"value": "test"
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 100
+				}
+			},
+			{
+				"name": "ExecuteSprocPipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pipelineWithSprocTest",
+						"type": "PipelineReference"
+					}
+				}
+			},
+			{
+				"name": "WaitOnFail",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "ExecuteSprocPipeline",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"parameters": {
+			"wait1": {
+				"type": "Int",
+				"defaultValue": 30
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,174 @@
+{
+	"name": "COMMON_FILE_LOAD_OUTPUT_PIPE",
+	"properties": {
+		"activities": [
+			{
+				"name": "LOOKUP_LOADS_TABLE",
+				"type": "Lookup",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": {
+							"value": "@concat('select * from [dbo].[Loads] where upper(trim(Source)) =','''',pipeline().parameters.Source,'''', ' and upper(trim(ObjectType)) =','''',pipeline().parameters.ObjectType,'''',' and Sensitive=','''',pipeline().parameters.Sensitive,'''',' and Active=','''',pipeline().parameters.Active,'''')",
+							"type": "Expression"
+						}
+					},
+					"dataset": {
+						"referenceName": "MARS_ANALYTICS_RAW_DELTA_SQLDB_DS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "FOR_EACH_OBJECT",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "LOOKUP_LOADS_TABLE",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('LOOKUP_LOADS_TABLE').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "IF_PATH_EXISTS",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "GET_FILE_PATH",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(true,activity('GET_FILE_PATH').output.exists)",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "COPY_TO_LAKE",
+										"type": "Copy",
+										"policy": {
+											"timeout": "7.00:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"typeProperties": {
+											"source": {
+												"type": "AzureDataLakeStoreSource",
+												"recursive": true
+											},
+											"sink": {
+												"type": "AzureDataLakeStoreSink"
+											},
+											"enableStaging": false,
+											"dataIntegrationUnits": 0
+										},
+										"inputs": [
+											{
+												"referenceName": "COMMON_VAULT_ADLS_DS",
+												"type": "DatasetReference",
+												"parameters": {
+													"file_path": {
+														"value": "OUTPUT/PETCARE_DATA_PLATFORM/DATA_SOURCES/@{pipeline().parameters.Source}/@{toUpper(item().Object)}/@{if(equals(item().Delta,true),'DELTA','FULL')}/@{formatDateTime(item().Watermark,'yyyy/MM/dd')}",
+														"type": "Expression"
+													},
+													"file_name": {
+														"value": "/",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "COMMON_LAKE_ADLS_DS",
+												"type": "DatasetReference",
+												"parameters": {
+													"file_path": {
+														"value": "RAW/SYSTEM/@{pipeline().parameters.Source}/@{toUpper(item().Object)}/@{if(equals(item().Delta,true),'DELTA','FULL')}/@{formatDateTime(item().Watermark,'yyyy/MM/dd')}",
+														"type": "Expression"
+													},
+													"file_name": {
+														"value": "/",
+														"type": "Expression"
+													}
+												}
+											}
+										]
+									}
+								]
+							}
+						},
+						{
+							"name": "GET_FILE_PATH",
+							"type": "GetMetadata",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "COMMON_VAULT_ADLS_DS",
+									"type": "DatasetReference",
+									"parameters": {
+										"file_path": {
+											"value": "OUTPUT/PETCARE_DATA_PLATFORM/DATA_SOURCES/@{pipeline().parameters.Source}/@{toUpper(item().Object)}/@{if(equals(item().Delta,true),'DELTA','FULL')}/@{formatDateTime(item().Watermark,'yyyy/MM/dd')}",
+											"type": "Expression"
+										},
+										"file_name": {
+											"value": "/",
+											"type": "Expression"
+										}
+									}
+								},
+								"fieldList": [
+									"exists"
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Source": {
+				"type": "String"
+			},
+			"ObjectType": {
+				"type": "String"
+			},
+			"Sensitive": {
+				"type": "String"
+			},
+			"Active": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "COMMON_PETCARE_DATA_PLATFORM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

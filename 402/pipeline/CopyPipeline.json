@@ -1,0 +1,98 @@
+{
+	"name": "CopyPipeline",
+	"properties": {
+		"description": "test",
+		"activities": [
+			{
+				"name": "Copy Data1",
+				"description": "",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set Variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "test/inputData.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "test/output/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureBlob14",
+						"type": "DatasetReference",
+						"parameters": {
+							"inputParam": "test"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "output",
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": {
+								"value": "@concat(pipeline().parameters.param, variables('testVar'))",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			},
+			{
+				"name": "Set Variable1",
+				"description": "testsetst",
+				"type": "SetVariable",
+				"userProperties": [
+					{
+						"name": "testProp",
+						"value": "setVar"
+					}
+				],
+				"typeProperties": {
+					"variableName": "testVar",
+					"value": "testVariableSetByActivity"
+				}
+			}
+		],
+		"parameters": {
+			"param": {
+				"type": "String",
+				"defaultValue": "test"
+			}
+		},
+		"variables": {
+			"testVar": {
+				"type": "String",
+				"defaultValue": "default"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

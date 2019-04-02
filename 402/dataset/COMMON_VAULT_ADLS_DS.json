@@ -1,0 +1,32 @@
+{
+	"name": "COMMON_VAULT_ADLS_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MARS_ANALYTICS_VAULT_ADLS_LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"file_path": {
+				"type": "String"
+			},
+			"file_name": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "PETCARE_DATA_PLATFORM"
+		},
+		"type": "AzureDataLakeStoreFile",
+		"typeProperties": {
+			"fileName": {
+				"value": "@if(equals('/',dataset().file_name),'',dataset().file_name)",
+				"type": "Expression"
+			},
+			"folderPath": {
+				"value": "@dataset().file_path",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

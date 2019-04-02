@@ -1,0 +1,45 @@
+{
+	"name": "TestPipelineRun",
+	"properties": {
+		"activities": [
+			{
+				"name": "start",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 10
+				}
+			},
+			{
+				"name": "wait",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "start",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 30
+				}
+			},
+			{
+				"name": "onFailed",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "start",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
