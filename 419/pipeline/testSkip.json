@@ -1,0 +1,104 @@
+{
+	"name": "testSkip",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Custom1",
+				"type": "Custom",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"command": "testses",
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "test",
+					"referenceObjects": {
+						"linkedServices": [
+							{
+								"referenceName": "AzureKeyVault1",
+								"type": "LinkedServiceReference"
+							},
+							{
+								"referenceName": "AzureBlobStorage2",
+								"type": "LinkedServiceReference"
+							}
+						]
+					},
+					"retentionTimeInDays": 20
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureBatch1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "WaitOnCompletion",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Custom1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "WaitOnSkipped",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "WaitOnCustomActivitySuccess",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "WaitOnCustomActivitySuccess",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Custom1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

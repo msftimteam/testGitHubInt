@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVault2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://adf-test-kv.vault.azure.net/"
+		}
+	}
+}

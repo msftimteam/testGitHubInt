@@ -1,0 +1,89 @@
+{
+	"name": "1msMISTRY_TEST",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "COMMON_FILE_LOAD_OUTPUT_PIPE",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"Source": {
+							"value": "@pipeline().parameters.Source",
+							"type": "Expression"
+						},
+						"ObjectType": {
+							"value": "@pipeline().parameters.ObjectType",
+							"type": "Expression"
+						},
+						"Sensitive": {
+							"value": "@pipeline().parameters.Sensitive",
+							"type": "Expression"
+						},
+						"Active": {
+							"value": "@pipeline().parameters.Active",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "Execute Pipeline2",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "COMMON_FILE_LOAD_OUTPUT_PIPE",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"Source": {
+							"value": "@pipeline().parameters.Source",
+							"type": "Expression"
+						},
+						"ObjectType": {
+							"value": "@pipeline().parameters.ObjectType",
+							"type": "Expression"
+						},
+						"Sensitive": {
+							"value": "@pipeline().parameters.Sensitive",
+							"type": "Expression"
+						},
+						"Active": {
+							"value": "@pipeline().parameters.Active",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"Source": {
+				"type": "String"
+			},
+			"ObjectType": {
+				"type": "String"
+			},
+			"Sensitive": {
+				"type": "String"
+			},
+			"Active": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "COMMON_PETCARE_DATA_PLATFORM"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

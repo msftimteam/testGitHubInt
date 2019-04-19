@@ -1,0 +1,83 @@
+{
+	"name": "TestActivityRuns",
+	"properties": {
+		"activities": [
+			{
+				"name": "start_wait",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "onFail",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "start_wait",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "onSucceed",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"expression": {
+						"value": "true",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "ifTrueWait",
+							"type": "Wait",
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "notConnectedActivity",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "onSucceed",
+				"description": "",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "start_wait",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "copy_TestRenameForFilter",
+						"type": "PipelineReference"
+					}
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

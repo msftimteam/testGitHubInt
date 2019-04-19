@@ -1,0 +1,23 @@
+{
+	"name": "executeRenamePipeline",
+	"properties": {
+		"description": "testsetestse",
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"description": "test",
+				"type": "ExecutePipeline",
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "TestRename6",
+						"type": "PipelineReference"
+					}
+				}
+			}
+		],
+		"annotations": [
+			"testAnno"
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

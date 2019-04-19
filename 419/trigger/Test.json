@@ -1,0 +1,35 @@
+{
+	"name": "Test",
+	"properties": {
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "1msMISTRY_TEST",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"Source": "testsource",
+					"ObjectType": "test",
+					"Sensitive": "test",
+					"Active": "test"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "TestActivityRuns",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Hour",
+				"interval": 1,
+				"startTime": "2018-11-16T01:59:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

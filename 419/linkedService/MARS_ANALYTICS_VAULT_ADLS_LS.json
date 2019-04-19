@@ -1,0 +1,13 @@
+{
+	"name": "MARS_ANALYTICS_VAULT_ADLS_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDataLakeStore",
+		"typeProperties": {
+			"dataLakeStoreUri": "https://adchugh.azuredatalakestore.net/webhdfs/v1",
+			"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+			"subscriptionId": "1e42591f-1f0c-4c5a-b7f2-a268f6105ec5",
+			"resourceGroupName": "adchugh_rg"
+		}
+	}
+}

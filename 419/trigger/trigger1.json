@@ -1,0 +1,23 @@
+{
+	"name": "trigger1",
+	"properties": {
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "executeCopyPipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2018-12-14T01:26:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

@@ -1,0 +1,113 @@
+{
+	"name": "pipeline96",
+	"properties": {
+		"description": "tetsetetestestset",
+		"activities": [
+			{
+				"name": "Copy Data1",
+				"description": "test",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "testSource"
+					},
+					{
+						"name": "TestUserProp",
+						"value": "test"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureBlob1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "output",
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": {
+								"value": "@concat(pipeline().parameters.name, pipeline().RunId)",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			},
+			{
+				"name": "Custom1",
+				"type": "Custom",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"command": "testsestestset",
+					"resourceLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"folderPath": "test",
+					"referenceObjects": {
+						"linkedServices": [
+							{
+								"referenceName": "AzureKeyVault1",
+								"type": "LinkedServiceReference"
+							},
+							{
+								"referenceName": "AzureBlobStorage1",
+								"type": "LinkedServiceReference"
+							}
+						],
+						"datasets": [
+							{
+								"referenceName": "AzureBlob2",
+								"type": "DatasetReference",
+								"parameters": {
+									"inputParam": "test"
+								}
+							}
+						]
+					},
+					"retentionTimeInDays": 20
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureBatch1",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"parameters": {
+			"name": {
+				"type": "String"
+			}
+		},
+		"annotations": [
+			"testAnnotation"
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
