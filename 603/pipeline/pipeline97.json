@@ -1,0 +1,18 @@
+{
+	"name": "pipeline97",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

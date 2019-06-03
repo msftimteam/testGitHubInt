@@ -1,0 +1,29 @@
+{
+	"name": "copy_tumblingWindowTrigger",
+	"properties": {
+		"annotations": [
+			"testTriggerAnno"
+		],
+		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "copy_TestRenameForFilter",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"name": "Test"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 15,
+			"startTime": "2018-11-27T05:44:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			}
+		}
+	}
+}

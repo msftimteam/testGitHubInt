@@ -1,0 +1,50 @@
+{
+	"name": "forEachWithWait",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "beforeForEach",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@range(1, 40)",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Wait1",
+							"description": "",
+							"type": "Wait",
+							"userProperties": [
+								{
+									"name": "testProp",
+									"value": "test"
+								}
+							],
+							"typeProperties": {
+								"waitTimeInSeconds": 10
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "beforeForEach",
+				"type": "Wait",
+				"typeProperties": {
+					"waitTimeInSeconds": 10
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

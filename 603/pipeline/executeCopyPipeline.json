@@ -1,0 +1,21 @@
+{
+	"name": "executeCopyPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CopyPipeline",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"name2": "fromExecutePipeline"
+					}
+				}
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

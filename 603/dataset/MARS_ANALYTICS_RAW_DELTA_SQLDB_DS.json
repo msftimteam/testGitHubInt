@@ -1,0 +1,14 @@
+{
+	"name": "MARS_ANALYTICS_RAW_DELTA_SQLDB_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureSqlTable",
+		"typeProperties": {
+			"tableName": "[dbo].[Loads]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
